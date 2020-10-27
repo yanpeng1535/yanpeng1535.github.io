@@ -5,20 +5,35 @@
 	<title>我的博客</title>
 	<script src="jquery.min.js"></script>
 	<style>
-		h1{
+		h1,span{
 			font-size:25px;
+			margin-top: 45px;
+		}
+		#box{
+			font-size:30px;
+			font-family: "微软雅黑";
+			color:#0074FF; text-shadow: 1px 1px #000,-1px -1px #000, 1px -1px #000, -1px 1px #000; font-size: 35px; font-family:"Microsoft YaHei", 
+		}
+		#btn{
+			-webkit-appearance: none;
+			border: 1px solid #236;
+			width: 80px;
+			height: 35px;
+			border-radius: 3px;
+			background: #fff;
 		}
 	</style>
 </head>
-<body>
-	Hello world!
+<body style="text-align: center;">
+	<h1>My first web page,Hello world!</h1>
+	<h1>My name is Yanpeng</h1>
 	<br>
-	<h1>燕鹏</h1>
-	<div id="box"></div>
-	<button id="btn">按钮</button>
+	<span style="margin-top: 85px;">『&nbsp;&nbsp;&nbsp;<sapn id="box">欢迎打开我的网站！</sapn>&nbsp;&nbsp;&nbsp;』</span>
+	<br><br><br>
+	<button id="btn">换一句</button>
 	<script type="text/javascript">
 		$('#btn').click(function () {
-			$.get('https://v1.hitokoto.cn/?c=f&encode=text', function (response, status, xhr) {
+			$.get('https://v1.hitokoto.cn/?encode=text', function (response, status, xhr) {
 				$('#box').html(response);
 			});
 		});

@@ -1,42 +1,523 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>我的博客</title>
-	<script src="jquery.min.js"></script>
-	<style>
-		h1,span{
-			font-size:25px;
-			margin-top: 45px;
-		}
-		#box{
-			font-size:30px;
-			font-family: "微软雅黑";
-			color:#0074FF; text-shadow: 1px 1px #000,-1px -1px #000, 1px -1px #000, -1px 1px #000; font-size: 35px; font-family:"Microsoft YaHei", 
-		}
-		#btn{
-			-webkit-appearance: none;
-			border: 1px solid #236;
-			width: 88px;
-			height: 36px;
-			border-radius: 3px;
-			background: #fff;
-		}
-	</style>
-</head>
-<body style="text-align: center;">
-	<h1>My first web page,Hello world!</h1>
-	<h1>My name is Yanpeng</h1>
-	<br>
-	<span style="margin-top: 85px;">『&nbsp;&nbsp;&nbsp;<sapn id="box">欢迎打开我的网站！</sapn>&nbsp;&nbsp;&nbsp;』</span>
-	<br><br><br>
-	<button id="btn">换一句</button>
-	<script type="text/javascript">
-		$('#btn').click(function () {
-			$.get('https://v1.hitokoto.cn/?encode=text', function (response, status, xhr) {
-				$('#box').html(response);
-			});
-		});
-	</script>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="cye-nm">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+            燕鹏
+        </title>
+        <style type="text/css">
+            /* Default css file for jemdoc. */ table#tlayout { border: none; border-collapse:
+            separate; background: white; } /* body { background: white; padding-bottom:
+            8px; margin: 0; } */ html { background-color: #eeeeee; } body { font-family:
+            Georgia, Helvetica, Arial, Verdana, san-serif, Times; color: #000; background-color:
+            #ffffff; text-align:left; /* for IE */ margin-top: 30px; margin-bottom:
+            30px; margin-left: auto; margin-right: auto; padding-left: 50px; padding-right:
+            50px; padding-top: 10px; padding-bottom: 30px; max-width: 960px; } #layout-menu
+            { background: #f6f6f6; border: 1px solid #dddddd; padding-top: 0.5em; padding-left:
+            8px; padding-right: 8px; font-size: 1.0em; width: auto; white-space: nowrap;
+            text-align: left; vertical-align: top; } #layout-menu td { background:
+            #f4f4f4; vertical-align: top; } #layout-content { padding-top: 0.0em; padding-left:
+            1.0em; padding-right: 1.0em; border: none; background: white; text-align:
+            left; vertical-align: top; } #layout-menu a { line-height: 1.5em; margin-left:
+            0.5em; } tt { background: #ffffdd; } pre, tt { font-size: 90%; font-family:
+            monaco, monospace; } a, a > tt { color: #224b8d; text-decoration: none;
+            } a:hover { border-bottom: 1px gray dotted; } #layout-menu a.current:link,
+            #layout-menu a.current:visited { color: #022b6d; border-bottom: 1px gray
+            solid; } #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover
+            { color: #527bbd; text-decoration: none; } #layout-menu a:hover { text-decoration:
+            none; } div.menu-category { border-bottom: 1px solid gray; margin-top:
+            0.8em; padding-top: 0.2em; padding-bottom: 0.1em; font-weight: bold; }
+            div.menu-item { padding-left: 16px; text-indent: -16px; } div#toptitle
+            { padding-bottom: 0.2em; margin-bottom: 1.5em; /*border-bottom: 3px double
+            gray;*/ } /* Reduce space if we begin the page with a title. */ div#toptitle
+            + h2, div#toptitle + h3 { margin-top: 0em; } div#subtitle { margin-top:
+            0.0em; margin-bottom: 0.0em; padding-top: 0em; padding-bottom: 0.1em; }
+            em { font-style: italic; } strong { font-weight: bold; } h1, h2, h3, h4
+            { color: #527bbd; margin-top: 0.7em; margin-bottom: 0.5em; padding-bottom:
+            0.2em; line-height: 1.0; padding-top: 0.5em; border-bottom: 1px solid #aaaaaa;
+            } h1 { color: #36648B; font-size: 165%; padding-bottom: 0.3em; } h2 { color:
+            #36648B; padding-top: 0.8em; font-size: 125%; } h2 + h3 { padding-top:
+            0.2em; } h3 { color: #36648B; font-size: 110%; border-bottom: none; } h4
+            { color: #FF0000; font-size: 110%; border-bottom: none; } p { margin-top:
+            0.0em; margin-bottom: 0.8em; padding: 0; line-height: 1.3; } pre { padding:
+            0; margin: 0; } div#footer { font-size: small; border-top: 1px solid #c0c0c0;
+            padding-top: 0.1em; margin-top: 4.0em; color: #c0c0c0; } div#footer a {
+            color: #80a0b0; } div#footer-text { float: left; padding-bottom: 8px; }
+            ul, ol, dl { margin-top: 0.2em; padding-top: 0; margin-bottom: 0.8em; }
+            dt { margin-top: 0.5em; margin-bottom: 0; } dl { margin-left: 20px; } dd
+            { color: #222222; } dd > *:first-child { margin-top: 0; } ul { list-style-position:
+            outside; list-style-type: square; } p + ul, p + ol { margin-top: -0.5em;
+            } li { margin-top:0.9em; } ol { list-style-position: outside; list-style-type:
+            decimal; } li p, dd p { margin-bottom: 0.3em; } ol ol { list-style-type:
+            lower-alpha; } ol ol ol { list-style-type: lower-roman; } p + div.codeblock
+            { margin-top: -0.6em; } div.codeblock, div.infoblock { margin-right: 0%;
+            margin-top: 1.2em; margin-bottom: 1.3em; } div.blocktitle { font-weight:
+            bold; color: #cd7b62; margin-top: 1.2em; margin-bottom: 0.1em; } div.blockcontent
+            { border: 1px solid silver; padding: 0.3em 0.5em; } div.infoblock > div.blockcontent
+            { background: #ffffee; } div.blockcontent p + ul, div.blockcontent p +
+            ol { margin-top: 0.4em; } div.infoblock p { margin-bottom: 0em; } div.infoblock
+            li p, div.infoblock dd p { margin-bottom: 0.5em; } div.infoblock p + p
+            { margin-top: 0.8em; } div.codeblock > div.blockcontent { background: #f6f6f6;
+            } span.pycommand { color: #000070; } span.statement { color: #008800; }
+            span.builtin { color: #000088; } span.special { color: #990000; } span.operator
+            { color: #880000; } span.error { color: #aa0000; } span.comment, span.comment
+            > *, span.string, span.string > * { color: #606060; } @media print { #layout-menu
+            { display: none; } } #fwtitle { margin: 2px; } #fwtitle #toptitle { padding-left:
+            0.5em; margin-bottom: 0.5em; } #layout-content h1:first-child, #layout-content
+            h2:first-child, #layout-content h3:first-child { margin-top: -0.7em; }
+            div#toptitle h1, #layout-content div#toptitle h1 { margin-bottom: 0.0em;
+            padding-bottom: 0.1em; padding-top: 0; margin-top: 0.5em; border-bottom:
+            none; } img.eq { padding: 0; padding-left: 0.1em; padding-right: 0.1em;
+            margin: 0; } img.eqwl { padding-left: 2em; padding-top: 0.6em; padding-bottom:
+            0.2em; margin: 0; } table + table { margin-top: 1em; } tr.heading { font-weight:
+            bold; border-bottom: 2px solid black; } img { border: none; } table.imgtable,
+            table.imgtable td { border: none; text-align: left; }
+        </style>
+    </head>
+    
+    <body ryt12610="1">
+        <div id="layout-content" style="margin-top:15px">
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="240">
+                            <img src="./name.jpg" width="180">
+                        </td>
+                        <td width="670">
+                            <div id="toptitle">
+                                <h1>
+                                    燕鹏&nbsp;
+                                </h1>
+                            </div>
+                            <h3>
+                                软件开发|信息技术教师
+                                </a>
+                            </h3>
+                            <p>
+                                <a href="JavaScript:;">
+                                    长期从事WEB系统开发与信息化教学，主要致力于Python、PHP、MySql、微信小程序、Javascript、网络运维管理、信息化建设、信息技术教学等。
+                                </a>
+                            </p>
+                           <!--  [
+                            <a href="https://scholar.google.com.tw/citations?user=da23smAAAAAJ&hl=en">
+                                <span style="color:purple">
+                                    Google Scholar
+                                </span>
+                            </a>
+                            ] -->
+                            <!--[<a href="https://github.com/WenbinLee"><span style="color:purple">Github</span></a>]
+                            [<a href="https://github.com/RL-VIG"><span style="color:purple">Github-VIG</span></a>] -->
+                            </p>
+                        </td>
+                        <!-- <td valign="top" width="315">
+                            <a href="https://cs.nju.edu.cn/rl/index.htm" target="_blank">
+                                <img height="70" src="rlgroup-2.jpg" width="315" border="0">
+                            </a>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <h2>
+                个人经历
+            </h2>
+            <p>
+                <td class="style1" valign="top" height="84">
+                    <p>2014年6月毕业于甘肃中医药大学数学系。</p>
+                    <p>2015年4月在甘肃省数字化教育工程实验室参与开发完成甘肃教师研修网等系统。</p>
+                    <p>2015年9月在兰州航空工业职工大学担任计算机基础教师，承担计算机基础教学工作。</p>
+                    <p>2016年毕业于西北师范大学计算机科学与工程学院。</p>
+                    <p>2016年8月任永昌一中信息技术教师。</p>
+            </p>
+            </td>
+            <p>
+            </p>
+            <h2>
+                主要专长
+            </h2>
+            <p style="text-indent: 2em;">
+                主要致力于信息化系统软件开发和信息化教学，以及Python、PHP、MySql、微信小程序、Javascript、网络运维管理、信息化建设等。
+            </p>
+            <p>
+            </p>
+            <!-- <h2>
+                Positions
+            </h2>
+            <ul>
+                <li>
+                    <b>
+                        请想要申请读研/读博的同学首先读这个文档: [
+                        <a href="https://github.com/fanq15/fanq15.github.io/blob/main/students.md">
+                            <b>
+                                招生要求与学生培养
+                            </b>
+                        </a>
+                        ]
+                    </b>
+                    </p>
+                </li>
+                <li>
+                    <h4>
+                        招收2025级申请-考核制的博士研究生2人（目前还有1个多模态/大模型方向的名额），欢迎与我联系！
+                    </h4>
+                    </p>
+                </li>
+                <li>
+                    <h4>
+                        常年招收硕士研究生和博士研究生、科研助理、科研实习生等，欢迎与我联系！
+                    </h4>
+                    </p>
+                </li>
+                <li>
+                    <strike>
+                        招收2025级保研/推免的硕士研究生3人，欢迎与我联系！（已招满）
+                    </strike>
+                    </p>
+                </li>
+                <li>
+                    <strike>
+                        招收2024级考研的硕士研究生2人，欢迎与我联系！（已招满）
+                    </strike>
+                    </p>
+                </li>
+            </ul>
+            <h2>
+                Preprints
+            </h2>
+            <ul>
+                <li>
+                    <b>
+                        Stable Segment Anything Model
+                    </b>
+                    [
+                    <a href="https://arxiv.org/abs/2311.15776">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Xin Tao, Lei Ke, Mingqiao Ye, Yuan Zhang, Pengfei Wan, Yu-Wing Tai,
+                    Chi-Keung Tang
+                    <br>
+                    </p>
+                    <em>
+                        arXiv preprint 2311.15776
+                    </em>
+                    <br>
+                </li>
+            </ul>
+            <h2>
+                Publications
+            </h2>
+            <ul>
+                <li>
+                    <b>
+                        Domain-Rectifying Adapter for Cross-domain Few-Shot Segmentation
+                    </b>
+                    [
+                    <a href="https://arxiv.org/pdf/2404.10322.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    Jiapeng Su,
+                    <b>
+                        Qi Fan (co-first author)
+                    </b>
+                    , Guangming Lu, Fanglin Chen, Wenjie Pei
+                    <br>
+                    </p>
+                    <em>
+                        IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+                    </em>
+                    , 2024
+                    <a>
+                        (Accepted)
+                    </a>
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        FSODv2: A Deep Calibrated Few-Shot Object Detection Network
+                    </b>
+                    [
+                    <a href="https://link.springer.com/article/10.1007/s11263-024-02049-z">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Wei Zhuo, Chi-Keung Tang, Yu-Wing Tai
+                    <br>
+                    </p>
+                    <em>
+                        International Journal of Computer Vision (IJCV)
+                    </em>
+                    , 2024
+                    <a>
+                        (CVPR2020 extension)
+                    </a>
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Learning to Learn Better Visual Prompts
+                    </b>
+                    [
+                    <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28343">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    Fengxiang Wang, Wanrong Huang, Shaowu Yang,
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Long Lan
+                    <br>
+                    </p>
+                    <em>
+                        Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)
+                    </em>
+                    , 2024
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        GCoNet+: A Stronger Group Collaborative Co-Salient Object Detector
+                    </b>
+                    [
+                    <a href="https://arxiv.org/pdf/2205.15469.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    Peng Zheng, Huazhu Fu, Deng-Ping Fan,
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Jie Qin, Yu-Wing Tai, Chi-Keung Tang, Luc Van Gool
+                    <br>
+                    </p>
+                    <em>
+                        IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI)
+                    </em>
+                    , 2023
+                    <a>
+                        (CVPR2021 extension)
+                    </a>
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Towards Robust Object Detection Invariant to Real-World Domain Shifts
+                    </b>
+                    [
+                    <a href="https://openreview.net/pdf?id=vqSyt8D3ny">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Mattia Segu, Yu-Wing Tai, Fisher Yu, Chi-Keung Tang, Bernt Schiele,
+                    Dengxin Dai
+                    <br>
+                    </p>
+                    <em>
+                        International Conference on Learning Representations (ICLR)
+                    </em>
+                    , 2023
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Self-Support Few-Shot Semantic Segmentation
+                    </b>
+                    [
+                    <a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136790689.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Wenjie Pei, Yu-Wing Tai, Chi-Keung Tang
+                    <br>
+                    </p>
+                    <em>
+                        European Conference on Computer Vision (ECCV)
+                    </em>
+                    , 2022
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Few-Shot Video Object Detection
+                    </b>
+                    [
+                    <a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136800071.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Chi-Keung Tang, Yu-Wing Tai
+                    <br>
+                    </p>
+                    <em>
+                        European Conference on Computer Vision (ECCV)
+                    </em>
+                    , 2022
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Few-Shot Object Detection with Model Calibration
+                    </b>
+                    [
+                    <a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136790707.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Chi-Keung Tang, Yu-Wing Tai
+                    <br>
+                    </p>
+                    <em>
+                        European Conference on Computer Vision (ECCV)
+                    </em>
+                    , 2022
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Group Collaborative Learning for Co-Salient Object Detection
+                    </b>
+                    [
+                    <a href="https://arxiv.org/pdf/2104.01108.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Deng-Ping Fan, Huazhu Fu, Chi-Keung Tang, Ling Shao, Yu-Wing Tai
+                    <br>
+                    </p>
+                    <em>
+                        IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+                    </em>
+                    , 2021
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Commonality-Parsing Network across Shape and Appearance for Partially
+                        Supervised Instance Segmentation
+                    </b>
+                    [
+                    <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123530375.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Lei Ke, Wenjie Pei, Chi-Keung Tang, Yu-Wing Tai
+                    <br>
+                    </p>
+                    <em>
+                        European Conference on Computer Vision (ECCV)
+                    </em>
+                    , 2020
+                    <br>
+                </li>
+                <li>
+                    <b>
+                        Few-Shot Object Detection with Attention-RPN and Multi-Relation Detector
+                    </b>
+                    [
+                    <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Fan_Few-Shot_Object_Detection_With_Attention-RPN_and_Multi-Relation_Detector_CVPR_2020_paper.pdf">
+                        <span>
+                            paper
+                        </span>
+                    </a>
+                    ]
+                    <br>
+                    </p>
+                    <b>
+                        Qi Fan
+                    </b>
+                    , Wei Zhuo, Chi-Keung Tang, Yu-Wing Tai
+                    <br>
+                    </p>
+                    <em>
+                        IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+                    </em>
+                    , 2020
+                    <br>
+                </li>
+            </ul>
+            <h2>
+                Awards and Honors11111111
+            </h2>
+            <ul>
+                <li>
+                    2024 ECCV 2nd workshop on Vision-based InduStrial InspectiON (VISION)
+                    Data Challenge - One Shot Industrial Defect Segmentation - 2nd place
+                </li>
+                <li>
+                    2016 China Collegiate Computing Contest Big Data Challenge - Champion
+                </li>
+                 <li>2014 National Endeavor Scholarship</li>
+                <li>2012 Excellent Student Scholarship of China University of Mining and Technology</li> -->
+                <!-- </small> --> 
+    </body>
+
 </html>
